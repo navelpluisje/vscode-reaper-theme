@@ -2,8 +2,10 @@
   "name": "reaper",
   "displayName": "Reaper Theme",
   "description": "Highlight your Reaper files",
-  "version": "0.0.1",
-  "contributors": ["Erwin Goossen<erwin@navelpluisje.nl>"],
+  "version": "0.1.0",
+  "contributors": [
+    "Erwin Goossen<erwin@navelpluisje.nl>"
+  ],
   "publisher": "navelpluisje",
   "license": "MIT",
   "icon": "assets/icon.png",
@@ -16,8 +18,8 @@
     "url": "https://github.com/navelpluisje/vscode-reaper-theme.git"
   },
   "bugs": {
-      "url": "https://github.com/navelpluisje/vscode-reaper-theme/issues",
-      "email": "erwin@navelpluisje.com"
+    "url": "https://github.com/navelpluisje/vscode-reaper-theme/issues",
+    "email": "erwin@navelpluisje.com"
   },
   "galleryBanner": {
     "color": "#272729",
@@ -30,14 +32,24 @@
     "languages": [
       {
         "id": "reaper",
-        "aliases": ["Reaper", "reaper"],
-        "extensions": [".txt"],
+        "aliases": [
+          "Reaper",
+          "reaper"
+        ],
+        "extensions": [
+          ".txt"
+        ],
         "configuration": "./language-configuration.json"
       },
       {
         "id": "reaperTheme",
-        "aliases": ["ReaperTheme", "reapertheme"],
-        "extensions": ["ReaperTheme"],
+        "aliases": [
+          "ReaperTheme",
+          "reapertheme"
+        ],
+        "extensions": [
+          "ReaperTheme"
+        ],
         "configuration": "./language-configuration.json"
       }
     ],
