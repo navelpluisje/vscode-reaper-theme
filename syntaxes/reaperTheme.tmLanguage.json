@@ -1,0 +1,111 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "reaperTheme",
+  "patterns": [
+    { "include": "#declaration" },
+    { "include": "#header" }
+  ],
+  "foldingStartMarker": "^Layout\\s*[a-zA-Z\\\"\\s]*",
+  "foldingStopMarker": "EndLayout\\s?\\;$",
+  "repository": {
+    "declaration": {
+      "name": "meta.comparison.reaper",
+      "match": "([_$[:alnum:]]*)\\=\\-?([_$[:alnum:]]*)",
+      "captures": {
+        "1": {
+          "name": "string.unquoted.reaper"
+        },
+        "2": {
+          "name": "entity.name.type.reaper"
+        }
+      }
+    },
+    "header": {
+      "name": "meta.comparison.reaper",
+      "match": "\\[([_$[:alnum:]\\s]*)\\]",
+      "captures": {
+        "1": {
+          "name": "constant.character.escape.reaper"
+        }
+      }
+    },
+    "function-end": {
+      "name": "keyword.operator.reaper",
+      "match": "\\b(endmacro)\\b"
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "constant.character.escape.reaper",
+          "match": "\\b(w|h|reaper_version|folderstate|folderdepth|maxfolderdepth|mcp_maxfolderdepth|recarm|tcp_iconsize|mcp_iconsize|mcp_wantextmix|tracknch|trackpanmode|tcp_fxparms|trackcolor_valid|trackcolor_r|trackcolor_g|trackcolor_b|trans_flags|trans_docked|trans_center|envcp_type)\\b"
+        }, {
+          "name": "constant.character.escape.reaper",
+          "match": "\\b(version|use_pngs|tcp_showborders|mcp_showborders|tcp_vupeakwidth|mcp_vupeakheight|mcp_mastervupeakheight|mcp_altmeterpos|use_overlays|transport_showborders|tcp_vol_zeroline|tcp_pan_zeroline|mcp_vol_zeroline|mcp_pan_zeroline|trans_speed_zeroline|gen_vol_zeroline|gen_pan_zeroline|item_volknobfg|mcp_voltext_flags|tcp_voltext_flags|mcp_master_voltext_flags|tcp_master_voltext_flags|tcp_master_minheight|mcp_min_height|envcp_min_height|tcp_folderindent|tcp_heights)\\b"
+        }, {
+          "name": "keyword.operator.reaper",
+          "match": "\\b(\\<|\\<\\=|\\=\\=|\\!\\=|\\>\\=|\\>)\\b"
+        }, {
+          "name": "entity.name.type.reaper",
+          "match": "\\b(Layout|EndLayout)\\b"
+        }
+      ]
+    },
+    "string": {
+      "name": "string.quoted.double.reaper",
+      "match": "([\\?|\\!]?)([a-zA-Z-_]*)\\s|\\n",
+      "captures": {
+        "1": {
+          "name": "keyword.operator.reaper"
+        },
+        "2": {
+          "name": "string.unquoted.reaper"
+        }
+      }
+    },
+    "number": {
+      "name": "string.quoted.double.reaper",
+      "match": "(\\d*)\\.?(\\d*)\\s|\\n",
+      "captures": {
+        "1": {
+          "name": "variable.parameter.reaper"
+        },
+        "2": {
+          "name": "variable.parameter.reaper"
+        }
+      }
+    },
+    "combinators": {
+      "name": "string.quoted.double.reaper",
+      "match": "([\\/|\\-|\\+|\\*])(\\:(([a-zA-Z-_]{3,})|([\\d]{1,3}))\\:(([a-zA-Z-_]{3,})|([\\d]{1,3})))?\\s|\\n",
+      "captures": {
+        "1": {
+          "name": "keyword.operator.reaper"
+        },
+        "4": {
+          "name": "constant.character.escape.reaper"
+        },
+        "5": {
+          "name": "variable.parameter.reaper"
+        },
+        "7": {
+          "name": "constant.character.escape.reaper"
+        },
+        "8": {
+          "name": "variable.parameter.reaper"
+        }
+      }
+    },
+    "strings": {
+      "name": "string.quoted.double.reaper",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.reaper",
+          "match": "\\\\."
+        }
+      ]
+    }
+  },
+  "scopeName": "source.ReaperTheme"
+}

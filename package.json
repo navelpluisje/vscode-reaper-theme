@@ -1,0 +1,57 @@
+{
+  "name": "reaper",
+  "displayName": "Reaper Theme",
+  "description": "Highlight your Reaper files",
+  "version": "0.0.1",
+  "contributors": ["Erwin Goossen<erwin@navelpluisje.nl>"],
+  "publisher": "navelpluisje",
+  "license": "MIT",
+  "icon": "assets/icon.png",
+  "engines": {
+    "vscode": "^1.43.0"
+  },
+  "homepage": "https://navelpluisje.nl",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/navelpluisje/vscode-reaper-theme.git"
+  },
+  "bugs": {
+      "url": "https://github.com/navelpluisje/vscode-reaper-theme/issues",
+      "email": "erwin@navelpluisje.com"
+  },
+  "galleryBanner": {
+    "color": "#272729",
+    "theme": "dark"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "reaper",
+        "aliases": ["Reaper", "reaper"],
+        "extensions": [".txt"],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "reaperTheme",
+        "aliases": ["ReaperTheme", "reapertheme"],
+        "extensions": ["ReaperTheme"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "reaper",
+        "scopeName": "rtconfig.txt",
+        "path": "./syntaxes/reaper.tmLanguage.json"
+      },
+      {
+        "language": "reaperTheme",
+        "scopeName": "source.ReaperTheme",
+        "path": "./syntaxes/reaperTheme.tmLanguage.json"
+      }
+    ]
+  }
+}
