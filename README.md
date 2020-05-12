@@ -7,6 +7,8 @@ This VS Code extension provides you with color highlighting for the following fi
 
 * **rtconfig.txt**
 * ***.reaperTheme**-files
+* ***.ost**-files (CSI osc surface files)
+* ***.mst**-files (CSI midi surface files)
 
 This is the first version. So if you run into issues, please let me know. If you want to contribute, please don't hassitate to create a PR or report a bug, feature request or so ever.
 
