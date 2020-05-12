@@ -1,9 +1,9 @@
 {
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-  "name": "reaper",
+  "name": "csiSurface",
   "patterns": [
-    { "include": "#macro-declaration" },
-    { "include": "#var-declaration" },
+    { "include": "#widget-declaration" },
+    { "include": "#mesage-declaration" },
     { "include": "#front-declaration" },
     { "include": "#clear-declaration" },
     { "include": "#keywords" },
@@ -12,13 +12,13 @@
     { "include": "#number" },
     { "include": "#comments" }
   ],
-  "foldingStartMarker": "^Layout\\s*[a-zA-Z\\\"\\s]*",
-  "foldingStopMarker": "EndLayout\\s?\\;$",
+  "foldingStartMarker": "^Widget\\s*[a-zA-Z\\\"\\s]*",
+  "foldingStopMarker": "WidgetEnd\\s?\\;$",
   "repository": {
     "comments": {
       "patterns": [
         {
-          "begin": "(^[ \\t]+)?(?=;)",
+          "begin": "(^[ \\t]+)?(?=\/\/)",
           "beginCaptures": {
             "1": {
               "name": "punctuation.whitespace.comment.leading.reaper"
@@ -27,7 +27,7 @@
           "end": "(?!\\G)",
           "patterns": [
             {
-              "begin": ";",
+              "begin": "\/\/",
               "beginCaptures": {
                 "0": {
                   "name": "punctuation.definition.comment.reaper"
@@ -40,45 +40,63 @@
         }
       ]
     },
-    "macro-declaration": {
+    "widget-declaration": {
       "name": "meta.function.expression.reaper",
-      "begin": "(^macro)\\s?([_$[:alnum:]]*)\\s?([\\s\\w]{3,})*",
+      "begin": "(^Widget)\\s?([a-zA-z0-9_-]*)\\s?([\\s\\w]{3,})*",
       "beginCaptures": {
         "1": {
           "name": "storage.type.function"
         },
         "2": {
-          "name": "entity.name.type.reaper"
-        },
-        "3": {
-          "name": "entity.name.function"
+          "name": "entity.name.function.reaper"
         }
       },
-      "end": "(?<=endmacro)",
+      "end": "(?<=WidgetEnd)",
       "patterns": [
         {
-          "include": "#function-params"
-        }, {
           "include": "#single-line-comment-consuming-line-ending"
         }, {
-          "include": "#var-declaration"
+          "include": "#midi-mesage-declaration"
+        }, {
+          "include": "#osc-mesage-declaration"
         }, {
           "include": "#function-end"
         }
       ]
     },
-    "var-declaration": {
+    "midi-mesage-declaration": {
       "name": "meta.function.expression.reaper",
-      "begin": "\\s*(set\\s|def\\s)\\s?([[_$[:alnum:]]*\\.?]*)\\s",
+      "begin": "\\s*([0-9a-zA-Z\\-_]{3,})((\\s[0-9a-f]{2}){3})((\\s[0-9a-f]{2}){3})?\\s",
       "beginCaptures": {
         "1": {
-          "name": "storage.type.function.reaper"
+          "name": "variable.parameter.reaper"
+        },
+        "2": {
+          "name": "entity.name.type.reaper"
+        },
+        "4": {
+          "name": "string.unquoted.reaper"
+        }
+      },
+      "end": "(?<=[\\d\\w\\]\\.]\\n)",
+      "patterns": [
+        {
+          "include": "#comments"
+        }
+      ]
+    },
+    "osc-mesage-declaration": {
+      "name": "meta.function.expression.reaper",
+      "begin": "\\s*([0-9a-zA-Z\\-_]{3,})\\s(\/)([a-zA-Z0-9\\-_]*)?\\s",
+      "beginCaptures": {
+        "1": {
+          "name": "variable.parameter.reaper"
         },
         "2": {
           "name": "entity.name.type.reaper"
         },
         "3": {
-          "name": "variable.parameter.reaper"
+          "name": "string.unquoted.reaper"
         }
       },
       "end": "(?<=[\\d\\w\\]\\.]\\n)",
@@ -190,7 +208,7 @@
     },
     "function-end": {
       "name": "keyword.operator.reaper",
-      "match": "\\b(endmacro)\\b"
+      "match": "\\b(WidgetEnd)\\b"
     },
     "keywords": {
       "patterns": [
@@ -266,5 +284,5 @@
       ]
     }
   },
-  "scopeName": "source.txt"
+  "scopeName": "source.mst"
 }

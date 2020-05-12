@@ -51,6 +51,18 @@
           "ReaperTheme"
         ],
         "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "csiSurface",
+        "aliases": [
+          "CsiSurface",
+          "csisurface"
+        ],
+        "extensions": [
+          "mst",
+          "ost"
+        ],
+        "configuration": "./csiSurface-language-configuration.json"
       }
     ],
     "grammars": [
@@ -63,6 +75,11 @@
         "language": "reaperTheme",
         "scopeName": "source.ReaperTheme",
         "path": "./syntaxes/reaperTheme.tmLanguage.json"
+      },
+      {
+        "language": "csiSurface",
+        "scopeName": "source.mst",
+        "path": "./syntaxes/csiSurface.tmLanguage.json"
       }
     ]
   }
