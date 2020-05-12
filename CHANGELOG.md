@@ -2,7 +2,7 @@
 
 All notable changes to the "Reaper Theme" extension will be documented in this file.
 
-## [0.1.3] 2020-05-12
+## [02..1] 2020-05-12
 
 ### Added
 - Synthax highlighting for **rtconfig.txt**-file
