@@ -3,13 +3,8 @@
   "name": "csiSurface",
   "patterns": [
     { "include": "#widget-declaration" },
-    { "include": "#mesage-declaration" },
-    { "include": "#front-declaration" },
-    { "include": "#clear-declaration" },
-    { "include": "#keywords" },
-    { "include": "#strings" },
-    { "include": "#string" },
-    { "include": "#number" },
+    { "include": "#midi-mesage-declaration" },
+    { "include": "#osc-mesage-declaration" },
     { "include": "#comments" }
   ],
   "foldingStartMarker": "^Widget\\s*[a-zA-Z\\\"\\s]*",
@@ -66,7 +61,7 @@
     },
     "midi-mesage-declaration": {
       "name": "meta.function.expression.reaper",
-      "begin": "\\s*([0-9a-zA-Z\\-_]{3,})((\\s[0-9a-f]{2}){3})((\\s[0-9a-f]{2}){3})?\\s",
+      "begin": "\\s*([0-9a-zA-Z\\-_]{3,})((\\s[0-9a-f]{2}){3})((\\s[0-9a-fA-F]{2}){3})?\\s",
       "beginCaptures": {
         "1": {
           "name": "variable.parameter.reaper"
@@ -120,168 +115,9 @@
         }
       ]
     },
-    "front-declaration": {
-      "name": "meta.function.expression.reaper",
-      "begin": "\\s*(front\\s)\\s?([[_$[:alnum:]]*\\.?\\s]*)\\s*",
-      "beginCaptures": {
-        "1": {
-          "name": "storage.type.function.reaper"
-        },
-        "2": {
-          "name": "entity.name.type.reaper"
-        }
-      },
-      "end": "(?<=\\n)",
-      "patterns": [
-        {
-          "include": "#comments"
-        }
-      ]
-    },
-    "clear-declaration": {
-      "name": "meta.function.expression.reaper",
-      "begin": "\\s*(clear\\s)\\s?([[_$[:alnum:]]*\\.?\\s]*\\*)\\s*",
-      "beginCaptures": {
-        "1": {
-          "name": "storage.type.function.reaper"
-        },
-        "2": {
-          "name": "entity.name.type.reaper"
-        }
-      },
-      "end": "(?<=\\n)",
-      "patterns": [
-        {
-          "include": "#comments"
-        }
-      ]
-    },
-    "coordinate-list": {
-      "name": "meta.function.reaper",
-      "begin": "\\[",
-      "end": "\\]",
-      "patterns": [{
-        "name": "meta.function.reaper",
-        "match": "(\\b(\\d{1,3})|([a-zA-Z_-]{1,})\\b){1,8}",
-        "captures": {
-          "2": {
-            "name": "variable.parameter.reaper"
-          },
-          "3": {
-            "name": "string.unquoted.reaper"
-          }
-        }
-      }]
-    },
-    "comparison": {
-      "name": "meta.comparison.reaper",
-      "match": "\\b(([\\d]{1,3})|(([a-zA-Z-_]{1,})\\{([\\d]{1,3})\\})|([a-zA-Z_-]{1,}))(\\<|\\<\\=|\\=\\=|\\!\\=|\\>\\=|\\>)(([\\d]{1,3})|(([a-zA-Z-_]{1,})\\{([\\d]{1,3})\\})|([a-zA-Z_-]{1,}))",
-      "captures": {
-        "2": {
-          "name": "variable.parameter.reaper"
-        },
-        "4": {
-          "name": "string.unquoted.reaper"
-        },
-        "5": {
-          "name": "variable.parameter.reaper"
-        },
-        "6": {
-          "name": "string.unquoted.reaper"
-        },
-        "7": {
-          "name": "storage.type.function"
-        },
-        "9": {
-          "name": "variable.parameter.reaper"
-        },
-        "11": {
-          "name": "string.unquoted.reaper"
-        },
-        "12": {
-          "name": "variable.parameter.reaper"
-        },
-        "13": {
-          "name": "string.unquoted.reaper"
-        }
-      }
-    },
     "function-end": {
       "name": "keyword.operator.reaper",
       "match": "\\b(WidgetEnd)\\b"
-    },
-    "keywords": {
-      "patterns": [
-        {
-          "name": "constant.character.escape.reaper",
-          "match": "\\b(w|h|reaper_version|folderstate|folderdepth|maxfolderdepth|mcp_maxfolderdepth|recarm|tcp_iconsize|mcp_iconsize|mcp_wantextmix|tracknch|trackpanmode|tcp_fxparms|trackcolor_valid|trackcolor_r|trackcolor_g|trackcolor_b|trans_flags|trans_docked|trans_center|envcp_type)\\b"
-        }, {
-          "name": "constant.character.escape.reaper",
-          "match": "\\b(version|use_pngs|tcp_showborders|mcp_showborders|tcp_vupeakwidth|mcp_vupeakheight|mcp_mastervupeakheight|mcp_altmeterpos|use_overlays|transport_showborders|tcp_vol_zeroline|tcp_pan_zeroline|mcp_vol_zeroline|mcp_pan_zeroline|trans_speed_zeroline|gen_vol_zeroline|gen_pan_zeroline|item_volknobfg|mcp_voltext_flags|tcp_voltext_flags|mcp_master_voltext_flags|tcp_master_voltext_flags|tcp_master_minheight|mcp_min_height|envcp_min_height|tcp_folderindent|tcp_heights)\\b"
-        }, {
-          "name": "keyword.operator.reaper",
-          "match": "\\b(\\<|\\<\\=|\\=\\=|\\!\\=|\\>\\=|\\>)\\b"
-        }, {
-          "name": "entity.name.type.reaper",
-          "match": "\\b(Layout|EndLayout)\\b"
-        }
-      ]
-    },
-    "string": {
-      "name": "string.quoted.double.reaper",
-      "match": "([\\?|\\!]?)([a-zA-Z-_]*)\\s|\\n",
-      "captures": {
-        "1": {
-          "name": "keyword.operator.reaper"
-        },
-        "2": {
-          "name": "string.unquoted.reaper"
-        }
-      }
-    },
-    "number": {
-      "name": "string.quoted.double.reaper",
-      "match": "(\\d*)\\.?(\\d*)\\s|\\n",
-      "captures": {
-        "1": {
-          "name": "variable.parameter.reaper"
-        },
-        "2": {
-          "name": "variable.parameter.reaper"
-        }
-      }
-    },
-    "combinators": {
-      "name": "string.quoted.double.reaper",
-      "match": "([\\/|\\-|\\+|\\*])(\\:(([a-zA-Z-_]{3,})|([\\d]{1,3}))\\:(([a-zA-Z-_]{3,})|([\\d]{1,3})))?\\s|\\n",
-      "captures": {
-        "1": {
-          "name": "keyword.operator.reaper"
-        },
-        "4": {
-          "name": "constant.character.escape.reaper"
-        },
-        "5": {
-          "name": "variable.parameter.reaper"
-        },
-        "7": {
-          "name": "constant.character.escape.reaper"
-        },
-        "8": {
-          "name": "variable.parameter.reaper"
-        }
-      }
-    },
-    "strings": {
-      "name": "string.quoted.double.reaper",
-      "begin": "\"",
-      "end": "\"",
-      "patterns": [
-        {
-          "name": "constant.character.escape.reaper",
-          "match": "\\\\."
-        }
-      ]
     }
   },
   "scopeName": "source.mst"
