@@ -1,0 +1,349 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "csiZone",
+  "patterns": [
+    { "include": "#zone-declaration" },
+    { "include": "#comments" },
+    { "include": "#virtual-widgets" }
+  ],
+  "foldingStartMarker": "^Zone\\s*[a-zA-Z\\\"\\s]*",
+  "foldingStopMarker": "ZoneEnd\\s?\\;$",
+  "autoClosingPairs": [
+    { "Zone": "{", "ZoneEnd": "}" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "begin": "(^[ \\t]+)?(?=\/)",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.whitespace.comment.leading.reaper"
+            }
+          },
+          "end": "(?!\\G)",
+          "patterns": [
+            {
+              "begin": "\/",
+              "beginCaptures": {
+                "0": {
+                  "name": "punctuation.definition.comment.reaper"
+                }
+              },
+              "end": "\\n",
+              "name": "comment.line"
+            }
+          ]
+        }
+      ]
+    },
+    "zone-declaration": {
+      "name": "meta.function.expression.reaper",
+      "begin": "(^Zone)(\\s*(\")?([a-zA-Z0-9_-]*)(\\|)?([0-9\\-]{,4})?(\")?)\\s*\\n",
+      "beginCaptures": {
+        "1": {
+          "name": "storage.type.function"
+        },
+        "3": {
+          "name": "entity.name.type.reaper"
+        },
+        "4": {
+          "name": "entity.name.function.reaper"
+        },
+        "5": {
+          "name": "entity.name.type.reaper"
+        },
+        "6": {
+          "name": "entity.name.function.reaper"
+        },
+        "7": {
+          "name": "entity.name.type.reaper"
+        }
+      },
+      "end": "(ZoneEnd)\\s*\\n",
+      "endCaptures": {
+        "1": {
+          "name": "storage.type.function"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#included-zone-declaration"
+        }, {
+          "include": "#single-line-comment-consuming-line-ending"
+        }, {
+          "include": "#widget-assignment"
+        }, {
+          "include": "#virtual-widgets"
+        }, {
+          "include": "#navigators"
+        }, {
+          "include": "#comments"
+        }
+      ]
+    },
+    "included-zone-declaration": {
+      "name": "meta.function.expression.reaper",
+      "begin": "(\\s*IncludedZones)\\s*\\n",
+      "beginCaptures": {
+        "1": {
+          "name": "storage.type.function"
+        }
+      },
+      "end": "\\s*(IncludedZonesEnd)\\s*\\n",
+      "endCaptures": {
+        "0": {
+          "name": "storage.type.function"
+        }
+      },
+      "patterns": [{
+        "include": "#included-zones"
+      }, {
+        "include": "#comments"
+      }]
+    },
+    "widget-assignment": {
+      "name": "meta.function.expression.reaper",
+      "begin": "\\s*([_$[:alnum:]\\+\\|]*)\\s+([\\S\\s\\|\"\\]\\[-]*)\\s*",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.name.type.reaper",
+          "patterns": [{
+            "include": "#virtual-widgets"
+          }, {
+            "include": "#modifiers"
+          }, {
+            "include": "#operators"
+          }]
+        },
+        "2": {
+          "name": "variable.parameter.reaper",
+          "patterns": [{
+            "include": "#transport-actions"
+          }, {
+            "include": "#track-actions"
+          }, {
+            "include": "#send-actions"
+          }, {
+            "include": "#fx-actions"
+          }, {
+            "include": "#navigation-actions"
+          }, {
+            "include": "#vca-actions"
+          }, {
+            "include": "#automation-actions"
+          }, {
+            "include": "#eucon-actions"
+          }, {
+            "include": "#other-actions"
+          }, {
+            "include": "#quoted-string"
+          }, {
+            "include": "#string"
+          }, {
+            "include": "#number-list"
+          }, {
+            "include": "#number"
+          }, {
+            "include": "#comments"
+          }, {
+            "include": "#operators"
+          }]
+        }
+      },
+      "end": "(?<=[\\d\\w\\]\\.\\s]?\\n)",
+      "patterns": [
+        {
+          "include": "#virtual-widgets"
+        }, {
+          "include": "#comments"
+        }
+      ]
+    },
+    "included-zones": {
+      "name": "meta.function.expression.reaper",
+      "match": "\\s*([_$[:alnum:]0-9\\+\\|\"-\\/\\s]*)\\n",
+      "captures": {
+        "1": {
+          "name": "entity.name.function.reaper",
+          "patterns": [
+            {
+              "include": "#quoted-string"
+            }, {
+              "include": "#comments"
+            }
+          ]
+        }
+      }
+    },
+    "virtual-widgets": {
+      "name": "meta.function.expression.reaper",
+      "match": "(OnTrackSelection|OnFXFocus|OnPageEnter|OnPageLeave|OnInitialization|OnEuConFXAreaGainedFocus|OnEuConFXAreaLostFocus)",
+      "captures": {
+        "1": {
+          "name": "punctuation.destructuring.reaper"
+        }
+      }
+    },
+    "navigators": {
+      "name": "keyword.operator.definiteassignment.reaper",
+      "match": "(SelectedTrackNavigator|TrackNavigator|MasterTrackNavigator|FocusedFxNavigator|SendNavigator|FXMenuNavigator)",
+      "captures": {
+        "1": {
+          "name": "punctuation.destructuring.reaper"
+        }
+      }
+    },
+    "modifiers": {
+      "name": "keyword.operator.definiteassignment.reaper",
+      "match": "(Shift|Option|Control|Alt|InvertFB|Hold)",
+      "captures": {
+        "1": {
+          "name": "constant.character.escape.reaper"
+        }
+      }
+    },
+    "transport-actions": {
+      "name": "keyword.operator.definiteassignment.reaper",
+      "match": "\\b(Rewind|FastForward|Play|Stop|Record|CycleTimeline|TimeDisplay|CycleTimeDisplayModes)\\b",
+      "captures": {
+        "1": {
+          "name": "string.unquoted.reaper"
+        }
+      }
+    },
+    "track-actions": {
+      "name": "keyword.operator.definiteassignment.reaper",
+      "match": "\\b(TrackVolume|SoftTakeover7BitTrackVolume|SoftTakeover14BitTrackVolume|MCUTrackPan|TrackPan|TrackPanWidth|TrackPanL|TrackPanR|TrackSelect|TrackUniqueSelect|TrackRangeSelect|TrackSolo|TrackMute|TrackRecordArm|TrackNameDisplay|TrackVolumeDisplay|MCUTrackPanDisplay|TrackPanDisplay|TrackPanWidthDisplay|TrackPanLeftDisplay|TrackPanRightDisplay|TrackOutputMeter|TrackOutputMeterAverageLR|TrackOutputMeterMaxPeakLR)\\b",
+      "captures": {
+        "1": {
+          "name": "string.unquoted.reaper"
+        }
+      }
+    },
+    "send-actions": {
+      "name": "keyword.operator.definiteassignment.reaper",
+      "match": "\\b(TrackSendVolume|TrackSendPan|TrackSendMute|TrackSendPrePost|TrackSendInvertPolarity|TrackSendNameDisplay|TrackSendVolumeDisplay|TrackSendPanDisplay|TrackSendPrePostDisplay|MapSelectedTrackSendsToWidgets)\\b",
+      "captures": {
+        "1": {
+          "name": "string.unquoted.reaper"
+        }
+      }
+    },
+    "fx-actions": {
+      "name": "keyword.operator.definiteassignment.reaper",
+      "match": "\\b(FXParam|FXParamRelative|FXNameDisplay|FXParamNameDisplay|FXParamValueDisplay|FXMenuNameDisplay|FocusedFXParam|FocusedFXParamNameDisplay|FocusedFXParamValueDisplay|MapFocusedFXToWidgets|MapSelectedTrackFXToWidgets|MapSelectedTrackFXToMenu|GoFXSlot|FXGainReductionMeter)\\b",
+      "captures": {
+        "1": {
+          "name": "string.unquoted.reaper"
+        }
+      }
+    },
+    "navigation-actions": {
+      "name": "keyword.operator.definiteassignment.reaper",
+      "match": "\\b(TrackBank|TogglePin|ToggleScrollLink|ForceScrollLink|NextPage|GoPage|GoZone|PageNameDisplay)\\b",
+      "captures": {
+        "1": {
+          "name": "string.unquoted.reaper"
+        }
+      }
+    },
+    "vca-actions": {
+      "name": "keyword.operator.definiteassignment.reaper",
+      "match": "\\b(TrackToggleVCASpill|ToggleVCAMode)\\b",
+      "captures": {
+        "1": {
+          "name": "string.unquoted.reaper"
+        }
+      }
+    },
+    "automation-actions": {
+      "name": "keyword.operator.definiteassignment.reaper",
+      "match": "\\b(TrackAutoMode|GlobalAutoMode|CycleTrackAutoMode|TrackAutoModeDisplay)\\b",
+      "captures": {
+        "1": {
+          "name": "string.unquoted.reaper"
+        }
+      }
+    },
+    "eucon-actions": {
+      "name": "keyword.operator.definiteassignment.reaper",
+      "match": "\\b(TrackVolumeDB|TrackPanPercent|TrackPanWidthPercent|TrackPanLPercent|TrackPanRPercent|TrackSendVolumeDB|TrackSendPanPercent|EuConTrackSendMute|EuConTrackSendInvertPolarity|EuConTrackSendPrePost|EuConTrackSendNameDisplay|EuConTrackSendVolumeDisplay|EuConTrackSendPanDisplay|EuConTrackSendPrePostDisplay|EuConTimeDisplay)\\b",
+      "captures": {
+        "1": {
+          "name": "string.unquoted.reaper"
+        }
+      }
+    },
+    "other-actions": {
+      "name": "keyword.operator.definiteassignment.reaper",
+      "match": "\\b(NoAction|FixedTextDisplay|FixedRGBColourDisplay|ClearAllSolo|Reaper|Shift|Option|Control|Alt|InvertFB|Hold|TrackTouch)\\b",
+      "captures": {
+        "1": {
+          "name": "string.unquoted.reaper"
+        }
+      }
+    },
+    "quoted-string": {
+      "name": "string.quoted.double.reaper",
+      "match": "((\")([\\S]*)(\\|)?(\"))",
+      "captures": {
+        "2": {
+          "name": "constant.character.escape.reaper"
+        },
+        "3": {
+          "name": "entity.name.function.reaper"
+        },
+        "4": {
+          "name": "variable.parameter.reaper"
+        },
+        "5": {
+          "name": "constant.character.escape.reaper"
+        }
+      }
+    },
+    "string": {
+      "name": "string.quoted.double.reaper",
+      "match": "\\s([_$[:alnum:]-]*)\\s?",
+      "captures": {
+        "1": {
+          "name": "entity.name.function.reaper"
+        }
+      }
+    },
+    "number-list": {
+      "name": "string.quoted.double.reaper",
+      "match": "((\\[)([0-9\\s\\.]*)(\\]))",
+      "captures": {
+        "2": {
+          "name": "constant.character.escape.reaper"
+        },
+        "3": {
+          "name": "entity.name.function.reaper"
+        },
+        "4": {
+          "name": "constant.character.escape.reaper"
+        }
+      }
+    },
+    "number": {
+      "name": "string.quoted.double.reaper",
+      "match": "\\s([0-9\\.]*)\\s",
+      "captures": {
+        "1": {
+          "name": "entity.name.function.reaper"
+        }
+      }
+    },
+    "operators": {
+      "name": "keyword.operator.definiteassignment.reaper",
+      "match": "(\\+|\\|)",
+      "captures": {
+        "1": {
+          "name": "variable.parameter.reaper"
+        }
+      }
+    }
+  },
+  "scopeName": "source.zon"
+}

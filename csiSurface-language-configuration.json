@@ -1,7 +1,7 @@
 {
     "comments": {
         // symbol used for single line comment. Remove this entry if your language does not support line comments
-        "lineComment": "//"
+        "lineComment": "/"
     },
     // symbols used as brackets
     "brackets": [
@@ -11,8 +11,8 @@
     ],
     // symbols that are auto closed when typing
     "autoClosingPairs": [
-        ["Widget ", "WidgetEnd"],
-        ["{", "}"],
+        ["Zone ", "ZoneEnd"],
+        ["IncludedZones", "IncludedZonesEnd"],
         ["[", "]"],
         ["(", ")"],
         ["\"", "\""],
@@ -28,8 +28,8 @@
     ],
 	"folding": {
 		"markers": {
-			"start": "^\\s*Widget\\b",
-			"end": "^\\s*WidgetEnd\\b"
+			"start": "^\\s*Zone\\b",
+			"end": "^\\s*ZoneEnd\\b"
 		}
 	}
 }

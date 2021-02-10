@@ -2,7 +2,7 @@
 
 All notable changes to the "Reaper Theme" extension will be documented in this file.
 
-## [0.2.2] 2020-05-13
+## [0.2.3] 2020-05-13
 
 ### Fixed
 - Midi message values were case sensitive. Now also accepts capitals

@@ -13,7 +13,7 @@
     "comments": {
       "patterns": [
         {
-          "begin": "(^[ \\t]+)?(?=\/\/)",
+          "begin": "(^[ \\t]+)?(?=\/)",
           "beginCaptures": {
             "1": {
               "name": "punctuation.whitespace.comment.leading.reaper"
@@ -22,7 +22,7 @@
           "end": "(?!\\G)",
           "patterns": [
             {
-              "begin": "\/\/",
+              "begin": "\/",
               "beginCaptures": {
                 "0": {
                   "name": "punctuation.definition.comment.reaper"
@@ -61,7 +61,7 @@
     },
     "midi-mesage-declaration": {
       "name": "meta.function.expression.reaper",
-      "begin": "\\s*([0-9a-zA-Z\\-_]{3,})((\\s[0-9a-f]{2}){3})((\\s[0-9a-fA-F]{2}){3})?\\s",
+      "begin": "\\s*([0-9a-zA-Z\\-_]{3,})((\\s[0-9a-fA-F]{2}){3})((\\s[0-9a-fA-F]{2}){3})?\\s*",
       "beginCaptures": {
         "1": {
           "name": "variable.parameter.reaper"
@@ -73,7 +73,7 @@
           "name": "string.unquoted.reaper"
         }
       },
-      "end": "(?<=[\\d\\w\\]\\.]\\n)",
+      "end": "(?<=[\\d\\w\\]\\.\\s]\\n)",
       "patterns": [
         {
           "include": "#comments"

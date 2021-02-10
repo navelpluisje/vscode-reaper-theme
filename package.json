@@ -37,7 +37,7 @@
           "reaper"
         ],
         "extensions": [
-          ".txt"
+          "txt"
         ],
         "configuration": "./language-configuration.json"
       },
@@ -63,12 +63,23 @@
           "ost"
         ],
         "configuration": "./csiSurface-language-configuration.json"
+      },
+      {
+        "id": "csiZone",
+        "aliases": [
+          "CsiZone",
+          "csizone"
+        ],
+        "extensions": [
+          "zon"
+        ],
+        "configuration": "./csiSurface-language-configuration.json"
       }
     ],
     "grammars": [
       {
         "language": "reaper",
-        "scopeName": "rtconfig.txt",
+        "scopeName": "source.txt",
         "path": "./syntaxes/reaper.tmLanguage.json"
       },
       {
@@ -80,6 +91,11 @@
         "language": "csiSurface",
         "scopeName": "source.mst",
         "path": "./syntaxes/csiSurface.tmLanguage.json"
+      },
+      {
+        "language": "csiZone",
+        "scopeName": "source.zon",
+        "path": "./syntaxes/csiZone.tmLanguage.json"
       }
     ]
   }
