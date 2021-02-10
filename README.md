@@ -16,6 +16,7 @@ The next files are currently supported:
 
 * ***.ost**-files (CSI osc surface files)
 * ***.mst**-files (CSI midi surface files)
+* ***.zon**-files (CSI zone files)
 
 Do you miss some files that need highlighting for Reaper. Please contribute. Don't hassitate to create a PR or report a bug, feature request or so ever. Together we can make this project better.
 

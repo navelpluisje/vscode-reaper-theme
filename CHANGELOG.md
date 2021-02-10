@@ -2,6 +2,12 @@
 
 All notable changes to the "Reaper Theme" extension will be documented in this file.
 
+## [0.3.0] 2021-02-10
+
+### Added
+- Synthax highlighting for ***.zon**-files
+
+---
 ## [0.2.3] 2020-05-13
 
 ### Fixed
