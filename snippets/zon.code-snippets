@@ -1,0 +1,20 @@
+{
+	"create zone": {
+		"prefix": "zone",
+		"body": [
+			"Zone \"${1:name}\"",
+			"\t${2:zone content}",
+			"ZoneEnd"
+		],
+		"description": "Create a new zone"
+	},
+	"create an included zone": {
+		"prefix": "includedzones",
+		"body": [
+			"IncludedZones",
+			"\t${1:zone content}",
+			"IncludedZonesEnd"
+		],
+		"description": "Create a new included zones zone"
+	}
+}

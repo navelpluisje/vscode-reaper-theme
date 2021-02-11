@@ -2,7 +2,7 @@
   "name": "reaper",
   "displayName": "Reaper Theme",
   "description": "Highlight your Reaper files",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "contributors": [
     "Erwin Goossen<erwin@navelpluisje.nl>"
   ],
@@ -96,6 +96,12 @@
         "language": "csiZone",
         "scopeName": "source.zon",
         "path": "./syntaxes/csiZone.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "csiZone",
+        "path": "./snippets/zon.code-snippets"
       }
     ]
   }
