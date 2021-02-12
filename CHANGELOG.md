@@ -7,7 +7,7 @@ All notable changes to the "Reaper Theme" extension will be documented in this f
 ### Added
 - Added 2 snippets for the zone
   - `zone`: Creates a zone block
-  - `includedZone: Creates a included zone block
+  - `includedZones`: Creates a includedZones block
 
 ---
 ## [0.3.0] 2021-02-10

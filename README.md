@@ -18,6 +18,10 @@ The next files are currently supported:
 * ***.mst**-files (CSI midi surface files)
 * ***.zon**-files (CSI zone files)
 
+#### Snippets
+* `zone`: Create a `Zone` block
+* `includedZones`: Create a `IncludedZones` block
+
 Do you miss some files that need highlighting for Reaper. Please contribute. Don't hassitate to create a PR or report a bug, feature request or so ever. Together we can make this project better.
 
 More info about reaper can be found at [reaper.fm](https://reaper.fm)
