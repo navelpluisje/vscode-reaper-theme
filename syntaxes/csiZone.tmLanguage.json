@@ -125,6 +125,8 @@
           }, {
             "include": "#send-actions"
           }, {
+            "include": "#receive-actions"
+          }, {
             "include": "#fx-actions"
           }, {
             "include": "#navigation-actions"
@@ -187,7 +189,7 @@
     },
     "navigators": {
       "name": "keyword.operator.definiteassignment.reaper",
-      "match": "(SelectedTrackNavigator|TrackNavigator|MasterTrackNavigator|FocusedFxNavigator|SendNavigator|FXMenuNavigator)",
+      "match": "(SelectedTrackNavigator|TrackNavigator|MasterTrackNavigator|FocusedFxNavigator|SendNavigator|ReceiveNavigator|FXMenuNavigator)",
       "captures": {
         "1": {
           "name": "punctuation.destructuring.reaper"
@@ -224,6 +226,15 @@
     "send-actions": {
       "name": "keyword.operator.definiteassignment.reaper",
       "match": "\\b(TrackSendVolume|TrackSendPan|TrackSendMute|TrackSendPrePost|TrackSendInvertPolarity|TrackSendNameDisplay|TrackSendVolumeDisplay|TrackSendPanDisplay|TrackSendPrePostDisplay|MapSelectedTrackSendsToWidgets)\\b",
+      "captures": {
+        "1": {
+          "name": "string.unquoted.reaper"
+        }
+      }
+    },
+    "receive-actions": {
+      "name": "keyword.operator.definiteassignment.reaper",
+      "match": "\\b(TrackReceiveVolume|TrackReceivePan|TrackReceiveMute|TrackReceiveNameDisplay|TrackReceiveVolumeDisplay|TrackReceivePanDisplay|TrackReceivePrePostDisplay|MapSelectedTrackReceivesToWidgets)\\b",
       "captures": {
         "1": {
           "name": "string.unquoted.reaper"

@@ -2,6 +2,11 @@
 
 All notable changes to the "Reaper Theme" extension will be documented in this file.
 
+## [0.3.4] 2021-05-21
+
+### Added
+- Added receive actions
+
 ## [0.3.3] 2021-05-21
 
 ### Fixed
