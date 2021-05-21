@@ -7,8 +7,8 @@
     { "include": "#osc-mesage-declaration" },
     { "include": "#comments" }
   ],
-  "foldingStartMarker": "^Widget\\s*[a-zA-Z\\\"\\s]*",
-  "foldingStopMarker": "WidgetEnd\\s?\\;$",
+  "foldingStartMarker": "^Widget\\s*[a-zA-Z\\\"\\s\\n]*",
+  "foldingStopMarker": "WidgetEnd\\s?\\n$",
   "repository": {
     "comments": {
       "patterns": [
@@ -37,7 +37,7 @@
     },
     "widget-declaration": {
       "name": "meta.function.expression.reaper",
-      "begin": "(^Widget)\\s?([a-zA-z0-9_-]*)\\s?([\\s\\w]{3,})*",
+      "begin": "(^Widget)\\s?([a-zA-z0-9_-]*)\\s*\\n",
       "beginCaptures": {
         "1": {
           "name": "storage.type.function"
@@ -46,7 +46,12 @@
           "name": "entity.name.function.reaper"
         }
       },
-      "end": "(?<=WidgetEnd)",
+      "end": "(WidgetEnd)\\s*\\n",
+      "endCaptures": {
+        "1": {
+          "name": "storage.type.function"
+        }
+      },
       "patterns": [
         {
           "include": "#single-line-comment-consuming-line-ending"
@@ -55,7 +60,27 @@
         }, {
           "include": "#osc-mesage-declaration"
         }, {
+          "include": "#display-feedback-declaration"
+        }, {
           "include": "#function-end"
+        }
+      ]
+    },
+    "display-feedback-declaration": {
+      "name": "meta.function.expression.reaper",
+      "begin": "\\s*([0-9a-zA-Z\\-_]{3,})((\\s[0-9a-fA-F]{1,2}){1})?\\s*",
+      "beginCaptures": {
+        "1": {
+          "name": "variable.parameter.reaper"
+        },
+        "2": {
+          "name": "entity.name.type.reaper"
+        }
+      },
+      "end": "(?<=[\\d\\w\\]\\.\\s]\\n)",
+      "patterns": [
+        {
+          "include": "#comments"
         }
       ]
     },
@@ -114,10 +139,6 @@
           "include": "#comparison"
         }
       ]
-    },
-    "function-end": {
-      "name": "keyword.operator.reaper",
-      "match": "\\b(WidgetEnd)\\b"
     }
   },
   "scopeName": "source.mst"
