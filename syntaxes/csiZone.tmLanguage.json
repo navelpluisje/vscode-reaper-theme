@@ -39,7 +39,7 @@
     },
     "zone-declaration": {
       "name": "meta.function.expression.reaper",
-      "begin": "(^Zone)(\\s*(\")?([a-zA-Z0-9_-]*)(\\|)?([0-9\\-]{,4})?(\")?)\\s*\\n",
+      "begin": "(^Zone)(\\s*[\"]?[a-zA-Z0-9\\:\\s\\(\\)\\|\\-]*\\s*[\"]?){1,2}\\s*\\n",
       "beginCaptures": {
         "1": {
           "name": "storage.type.function"

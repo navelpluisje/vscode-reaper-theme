@@ -2,6 +2,12 @@
 
 All notable changes to the "Reaper Theme" extension will be documented in this file.
 
+## [0.3.3] 2021-05-21
+
+### Fixed
+- Fixed regex for more complex zone names
+
+---
 ## [0.3.1] 2021-02-12
 
 ### Added
