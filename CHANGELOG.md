@@ -2,6 +2,13 @@
 
 All notable changes to the "Reaper Theme" extension will be documented in this file.
 
+## [0.3.5] 2021-05-26
+
+### Added
+- Added SubZone support
+- Added GoSubZone support
+- Added the unmap actions
+
 ## [0.3.5] 2021-05-21
 
 ### Fixed

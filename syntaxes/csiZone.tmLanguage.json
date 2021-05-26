@@ -70,6 +70,8 @@
         {
           "include": "#included-zone-declaration"
         }, {
+          "include": "#included-sub-zone-declaration"
+        }, {
           "include": "#single-line-comment-consuming-line-ending"
         }, {
           "include": "#widget-assignment"
@@ -91,6 +93,26 @@
         }
       },
       "end": "\\s*(IncludedZonesEnd)\\s*\\n",
+      "endCaptures": {
+        "0": {
+          "name": "storage.type.function"
+        }
+      },
+      "patterns": [{
+        "include": "#included-zones"
+      }, {
+        "include": "#comments"
+      }]
+    },
+    "included-sub-zone-declaration": {
+      "name": "meta.function.expression.reaper",
+      "begin": "(\\s*SubZones)\\s*\\n",
+      "beginCaptures": {
+        "1": {
+          "name": "storage.type.function"
+        }
+      },
+      "end": "\\s*(SubZonesEnd)\\s*\\n",
       "endCaptures": {
         "0": {
           "name": "storage.type.function"
@@ -150,6 +172,8 @@
             "include": "#comments"
           }, {
             "include": "#operators"
+          }, {
+            "include": "#included-zones"
           }]
         }
       },
@@ -164,7 +188,7 @@
     },
     "included-zones": {
       "name": "meta.function.expression.reaper",
-      "match": "\\s*([_$[:alnum:]0-9\\+\\|\"-\\/\\s]*)\\n",
+      "match": "\\s*([_$[:alnum:]0-9\\+\\|\"-\\/\\s\\:\\&]*)\\n",
       "captures": {
         "1": {
           "name": "entity.name.function.reaper",
@@ -243,7 +267,7 @@
     },
     "fx-actions": {
       "name": "keyword.operator.definiteassignment.reaper",
-      "match": "\\b(FXParam|FXParamRelative|FXNameDisplay|FXParamNameDisplay|FXParamValueDisplay|FXMenuNameDisplay|FocusedFXParam|FocusedFXParamNameDisplay|FocusedFXParamValueDisplay|MapFocusedFXToWidgets|MapSelectedTrackFXToWidgets|MapSelectedTrackFXToMenu|GoFXSlot|FXGainReductionMeter)\\b",
+      "match": "\\b(FXParam|FXParamRelative|FXNameDisplay|FXParamNameDisplay|FXParamValueDisplay|FXMenuNameDisplay|FocusedFXParam|FocusedFXParamNameDisplay|FocusedFXParamValueDisplay|MapFocusedFXToWidgets|MapSelectedTrackFXToWidgets|MapSelectedTrackFXToMenu|UnMapFocusedFXFromWidgets|UnMapSelectedTrackFXFromWidgets|UnMapSelectedTrackFXFromMenu|GoFXSlot|FXGainReductionMeter)\\b",
       "captures": {
         "1": {
           "name": "string.unquoted.reaper"
@@ -252,7 +276,7 @@
     },
     "navigation-actions": {
       "name": "keyword.operator.definiteassignment.reaper",
-      "match": "\\b(TrackBank|TogglePin|ToggleScrollLink|ForceScrollLink|NextPage|GoPage|GoZone|PageNameDisplay)\\b",
+      "match": "\\b(TrackBank|TogglePin|ToggleScrollLink|ForceScrollLink|NextPage|GoPage|GoZone|GoSubZone|PageNameDisplay)\\b",
       "captures": {
         "1": {
           "name": "string.unquoted.reaper"
