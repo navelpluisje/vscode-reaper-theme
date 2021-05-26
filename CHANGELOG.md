@@ -2,12 +2,15 @@
 
 All notable changes to the "Reaper Theme" extension will be documented in this file.
 
-## [0.3.5] 2021-05-26
+## [0.3.6] 2021-05-26
 
 ### Added
 - Added SubZone support
 - Added GoSubZone support
 - Added the unmap actions
+
+### Improved
+- Improved the widget declaration
 
 ## [0.3.5] 2021-05-21
 
