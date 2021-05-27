@@ -6,7 +6,16 @@
 			"\t${2:zone content}",
 			"ZoneEnd"
 		],
-		"description": "Create a new zone"
+		"description": "Create a new Zone"
+	},
+	"create subzones": {
+		"prefix": "subzones",
+		"body": [
+			"SubZones \"${1:name}\"",
+			"\t${2:zone content}",
+			"SubZoneEnd"
+		],
+		"description": "Create a new SubZones block"
 	},
 	"create an included zone": {
 		"prefix": "includedzones",
@@ -15,6 +24,6 @@
 			"\t${1:zone content}",
 			"IncludedZonesEnd"
 		],
-		"description": "Create a new included zones zone"
+		"description": "Create a new IncludedZones block"
 	}
 }

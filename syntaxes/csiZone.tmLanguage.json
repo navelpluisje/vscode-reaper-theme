@@ -240,7 +240,7 @@
     },
     "track-actions": {
       "name": "keyword.operator.definiteassignment.reaper",
-      "match": "\\b(TrackVolume|SoftTakeover7BitTrackVolume|SoftTakeover14BitTrackVolume|MCUTrackPan|TrackPan|TrackPanWidth|TrackPanL|TrackPanR|TrackSelect|TrackUniqueSelect|TrackRangeSelect|TrackSolo|TrackMute|TrackRecordArm|TrackNameDisplay|TrackVolumeDisplay|MCUTrackPanDisplay|TrackPanDisplay|TrackPanWidthDisplay|TrackPanLeftDisplay|TrackPanRightDisplay|TrackOutputMeter|TrackOutputMeterAverageLR|TrackOutputMeterMaxPeakLR)\\b",
+      "match": "\\b(TrackVolume|SoftTakeover7BitTrackVolume|SoftTakeover14BitTrackVolume|MCUTrackPan|TrackPan|TrackPanWidth|TrackPanL|TrackPanR|TrackSelect|TrackUniqueSelect|TrackRangeSelect|TrackSolo|TrackMute|TrackRecordArm|TrackInvertPolarity|TrackNameDisplay|TrackVolumeDisplay|MCUTrackPanDisplay|TrackPanDisplay|TrackPanWidthDisplay|TrackPanLeftDisplay|TrackPanRightDisplay|TrackOutputMeter|TrackOutputMeterAverageLR|TrackOutputMeterMaxPeakLR)\\b",
       "captures": {
         "1": {
           "name": "string.unquoted.reaper"
@@ -276,7 +276,7 @@
     },
     "navigation-actions": {
       "name": "keyword.operator.definiteassignment.reaper",
-      "match": "\\b(TrackBank|TogglePin|ToggleScrollLink|ForceScrollLink|NextPage|GoPage|GoZone|GoSubZone|PageNameDisplay)\\b",
+      "match": "\\b(TrackBank|SelectedTrackBank|TogglePin|ToggleScrollLink|ForceScrollLink|NextPage|GoPage|GoZone|GoSubZone|PageNameDisplay)\\b",
       "captures": {
         "1": {
           "name": "string.unquoted.reaper"
@@ -303,7 +303,7 @@
     },
     "eucon-actions": {
       "name": "keyword.operator.definiteassignment.reaper",
-      "match": "\\b(TrackVolumeDB|TrackPanPercent|TrackPanWidthPercent|TrackPanLPercent|TrackPanRPercent|TrackSendVolumeDB|TrackSendPanPercent|EuConTrackSendMute|EuConTrackSendInvertPolarity|EuConTrackSendPrePost|EuConTrackSendNameDisplay|EuConTrackSendVolumeDisplay|EuConTrackSendPanDisplay|EuConTrackSendPrePostDisplay|EuConTimeDisplay)\\b",
+      "match": "\\b(TrackVolumeDB|TrackPanPercent|TrackPanWidthPercent|TrackPanLPercent|TrackPanRPercent|TrackSendVolumeDB|TrackSendPanPercent|TrackInvertPolarity|EuConTrackSendMute|EuConTrackSendInvertPolarity|EuConTrackSendPrePost|EuConTrackSendNameDisplay|EuConTrackSendVolumeDisplay|EuConTrackSendPanDisplay|EuConTrackSendPrePostDisplay|EuConTimeDisplay)\\b",
       "captures": {
         "1": {
           "name": "string.unquoted.reaper"
@@ -321,7 +321,7 @@
     },
     "quoted-string": {
       "name": "string.quoted.double.reaper",
-      "match": "((\")([\\S]*)(\\|)?(\"))",
+      "match": "((\")([\\S\\s]*)(\\|)?(\"))",
       "captures": {
         "2": {
           "name": "constant.character.escape.reaper"

@@ -2,6 +2,16 @@
 
 All notable changes to the "Reaper Theme" extension will be documented in this file.
 
+## [0.3.7] 2021-05-27
+
+### Added
+- Added TrackInvertPolarity
+- Added SelectedTrackBank
+- Added snippet for SubZones
+
+### Improved
+- Improved the widget value declaration
+
 ## [0.3.6] 2021-05-26
 
 ### Added
