@@ -2,6 +2,12 @@
 
 All notable changes to the "Reaper Theme" extension will be documented in this file.
 
+## [0.3.8] 2021-05-27
+
+### Added
+- Added new actions
+
+---
 ## [0.3.7] 2021-05-27
 
 ### Added
@@ -12,6 +18,7 @@ All notable changes to the "Reaper Theme" extension will be documented in this f
 ### Improved
 - Improved the widget value declaration
 
+---
 ## [0.3.6] 2021-05-26
 
 ### Added
@@ -22,16 +29,19 @@ All notable changes to the "Reaper Theme" extension will be documented in this f
 ### Improved
 - Improved the widget declaration
 
+---
 ## [0.3.5] 2021-05-21
 
 ### Fixed
 - Fixed color highlighting for surface file
 
+---
 ## [0.3.4] 2021-05-21
 
 ### Added
 - Added receive actions
 
+---
 ## [0.3.3] 2021-05-21
 
 ### Fixed

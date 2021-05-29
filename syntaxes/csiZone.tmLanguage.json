@@ -147,6 +147,8 @@
           }, {
             "include": "#send-actions"
           }, {
+            "include": "#setting-actions"
+          }, {
             "include": "#receive-actions"
           }, {
             "include": "#fx-actions"
@@ -241,6 +243,15 @@
     "track-actions": {
       "name": "keyword.operator.definiteassignment.reaper",
       "match": "\\b(TrackVolume|SoftTakeover7BitTrackVolume|SoftTakeover14BitTrackVolume|MCUTrackPan|TrackPan|TrackPanWidth|TrackPanL|TrackPanR|TrackSelect|TrackUniqueSelect|TrackRangeSelect|TrackSolo|TrackMute|TrackRecordArm|TrackInvertPolarity|TrackNameDisplay|TrackVolumeDisplay|MCUTrackPanDisplay|TrackPanDisplay|TrackPanWidthDisplay|TrackPanLeftDisplay|TrackPanRightDisplay|TrackOutputMeter|TrackOutputMeterAverageLR|TrackOutputMeterMaxPeakLR)\\b",
+      "captures": {
+        "1": {
+          "name": "string.unquoted.reaper"
+        }
+      }
+    },
+    "setting-actions": {
+      "name": "keyword.operator.definiteassignment.reaper",
+      "match": "\\b(SetBroadcastGoZone|SetReceiveGoZone|SetBroadcastGoFXSlot|SetReceiveGoFXSlot)\\b",
       "captures": {
         "1": {
           "name": "string.unquoted.reaper"
