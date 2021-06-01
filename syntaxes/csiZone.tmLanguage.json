@@ -251,7 +251,7 @@
     },
     "setting-actions": {
       "name": "keyword.operator.definiteassignment.reaper",
-      "match": "\\b(SetBroadcastGoZone|SetReceiveGoZone|SetBroadcastGoFXSlot|SetReceiveGoFXSlot)\\b",
+      "match": "\\b(SetBroadcastGoZone|SetReceiveGoZone|SetBroadcastGoFXSlot|SetReceiveGoFXSlot|SetBroadcastMapSelectedTrackSendsToWidgets|SetReceiveMapSelectedTrackSendsToWidgets|SetBroadcastMapSelectedTrackReceivesToWidgets|SetReceiveMapSelectedTrackReceivesToWidgets|SetBroadcastMapSelectedTrackFXToMenu|SetReceiveMapSelectedTrackFXToMenu|SetBroadcastMapSelectedTrackFXToWidgets|SetReceiveMapSelectedTrackFXToWidgets)\\b",
       "captures": {
         "1": {
           "name": "string.unquoted.reaper"

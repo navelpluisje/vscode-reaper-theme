@@ -2,6 +2,12 @@
 
 All notable changes to the "Reaper Theme" extension will be documented in this file.
 
+## [0.3.9] 2021-06-01
+
+### Added
+- Added new broadcast and receive actions
+
+---
 ## [0.3.8] 2021-05-27
 
 ### Added
