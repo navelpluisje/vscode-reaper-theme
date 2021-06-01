@@ -2,6 +2,12 @@
 
 All notable changes to the "Reaper Theme" extension will be documented in this file.
 
+## [0.3.10] 2021-06-01
+
+### Improved
+- Added quote to valid cahrs inside zone name
+
+---
 ## [0.3.9] 2021-06-01
 
 ### Added
